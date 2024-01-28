@@ -79,6 +79,9 @@ class RestreamHLS extends Command
                 $process->setTimeout(null); // Set the timeout to null (no timeout)
                 $process->start();
 
+                echo $process->getOutput(); // Print output
+                echo $process->getErrorOutput(); // Print error output
+
                 StreamChannel::updateOrCreate(
                     ['stream_url' => $newUrl],
                     ['name' => $channelName, 'parent_id' => $insertChannel->id, 'stream_url' => $newUrl]
