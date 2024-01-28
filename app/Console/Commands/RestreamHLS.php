@@ -73,6 +73,8 @@ class RestreamHLS extends Command
 
                 $ffmpegCommand = "ffmpeg -i " . escapeshellarg($streamUrlTarget) . " -c copy -f hls -hls_time 10 -hls_list_size 6 -hls_flags delete_segments " . escapeshellarg($outputPath) . " > /dev/null 2>&1";
 
+                dd($ffmpegCommand);
+
                 // No need to check for existing FFMPEG processes within the loop
 
                 $process = Process::fromShellCommandline($ffmpegCommand);
